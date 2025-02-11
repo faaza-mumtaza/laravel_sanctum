@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('11223344'),
-            'phone' => '0123456789',
-            'role' => 'admin',
+            // 'phone' => '0123456789',
+            // 'role' => 'admin',
         ]);
 
         //category factory 2
