@@ -19,12 +19,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/{id}', [CategoryController::class, 'show']);
         Route::put('/{id}', [CategoryController::class, 'update']);
         Route::delete('/{id}', [CategoryController::class, 'destroy']);
+
+        Route::post('/products/{id}/restore', [ProductController::class, 'restore']);
+        Route::delete('/products/{id}/force-delete', [ProductController::class, 'forceDelete']);
+
     });
 
     Route::apiResource('products', ProductController::class);
 
-    Route::group(function () {
-        Route::post('/products/{id}/restore', [ProductController::class, 'restore']);
-        Route::delete('/products/{id}/force-delete', [ProductController::class, 'forceDelete']);
-    });
 });
