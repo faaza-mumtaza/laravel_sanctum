@@ -25,6 +25,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     });
 
-    Route::apiResource('products', ProductController::class);
+    Route::apiResource('products', ProductController::class)
+    // ->except(['update'])
+
+    ;
 
 });
