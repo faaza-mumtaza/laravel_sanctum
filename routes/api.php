@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/{id}', [CategoryController::class, 'show']);
         Route::put('/{id}', [CategoryController::class, 'update']);
         Route::delete('/{id}', [CategoryController::class, 'destroy']);
+    });
+
+    Route::apiResource('products', ProductController::class);
+
+    Route::group(function () {
+        Route::post('/products/{id}/restore', [ProductController::class, 'restore']);
+        Route::delete('/products/{id}/force-delete', [ProductController::class, 'forceDelete']);
     });
 });
